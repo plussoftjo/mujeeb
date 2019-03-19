@@ -15,8 +15,8 @@ use Illuminate\Http\Request;
 
 // <<<<<<<<<<<< USER CONTROLLER  >>>>>>>>>>>>>>> 
 // Login 
-Route::post('user/login','APi\authController@login');
-Route::post('user/reg','APi\authController@reg');
+Route::post('user/login','API\authController@login');
+Route::post('user/reg','API\authController@reg');
 
 
 // WITH AUTH 
