@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class order extends Model
 {
-	public $with = ['user','catg','subcatg'];
-    protected $fillable = ['user_id','auth','date','lngLat','des','images','state','type','catg_id','subcatg_id'];
+	public $with = ['user','catg','subcatg','supplierresp'];
+    protected $fillable = ['user_id','auth','date','lngLat','des','images','state','type','catg_id','subcatg_id','time'];
 
     public function user() {
     	return $this->belongsTo('App\User');
@@ -19,5 +19,12 @@ class order extends Model
 
     public function subcatg() {
     	return $this->belongsTo('App\subcatg');
+    }
+
+    public function sppliernotf() {
+        return $this->hasMany('App\suppliernotf');
+    }
+    public function supplierresp() {
+        return $this->hasMany('App\supplierresp');
     }
 }

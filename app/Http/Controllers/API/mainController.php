@@ -35,8 +35,12 @@ class mainController extends Controller
     }
 
     public function checkProfile() {
-        $profile = profile::where('user_id',Auth::id())->firstOrFail();
-        return response()->json();
+        $profile = profile::where('user_id',Auth::id())->count();
+        if($profile == 0)
+        {
+            return response()->json(['hasProfile' => false]);
+        }
+        return response()->json(['hasProfile' => true]);
     }
 
     public function changeCountry($id)

@@ -59,5 +59,34 @@ Route::group(['middleware' => 'auth:api'], function(){
 	//destroy order
 	Route::get('/order/destroy/{id}','API\orderController@destroyOrder');
 
+	Route::get('/order/price_list/{id}','API\myOrderController@price_list');
 
+	Route::get('/order/accept_price/{id}','API\myOrderController@accept_price');
+
+	Route::get('/order/messages/{id}','API\myOrderController@getMessages');
+
+	//sent Message 
+	Route::post('/message/send','API\myOrderController@sendMessage');
+
+	//end order
+	Route::get('/order/end/{id}','API\myOrderController@endOrder');
+
+	//////////////////////// SUPPLIER API ////////////////
+	///
+	//////////////////////////////////////////////
+
+	// order
+	Route::get('supplier/order/fetch','SUPPLIERAPI\orderController@fetch_order');
+	// get the order
+	Route::get('supplier/order/id/{id}','SUPPLIERAPI\orderController@order');
+	//submit price
+	Route::post('supplier/order/submit_price','SUPPLIERAPI\orderController@submit_price');
+	// taken order
+	Route::get('supplier/takenorders','SUPPLIERAPI\orderController@takenorders');
+});
+
+Route::middleware('auth:api')->post('/broadcast/auth', 'Api\BroadcastAuthController@auth');
+
+Broadcast::channel('messages.*', function ($user) {
+  return Auth::check();
 });

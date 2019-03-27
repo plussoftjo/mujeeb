@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('auth');
             $table->integer('user_id');
             $table->string('date')->nullable();
+            $table->string('time')->nullable();
             $table->string('lngLat')->nullable();
             $table->string('des')->nullable();
             $table->string('images')->nullable();

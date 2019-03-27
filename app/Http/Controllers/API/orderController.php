@@ -9,6 +9,11 @@ use Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 use Carbon\Carbon;
 use App\feedback;
+use App\supplier;
+use App\profile;
+use App\suppliernotf;
+use App\messages;
+use App\supplierresp;
 class orderController extends Controller
 {
     public function store(Request $request)
@@ -59,14 +64,31 @@ class orderController extends Controller
     		'auth' => Auth::id(),
     		'user_id' => 0,
     		'date' => $request->date,
+            'time' => $request->time,
     		'lngLat' => $request->lngLat,
     		'des' => $request->note,
     		'images' => $images,
-    		'type' => 'direct',
+    		'type' => 'order_price',
     		'catg_id' => $request->catg_id,
     		'subcatg_id' => $request->service
 
-    	]);	
+    	]);
+
+        // get User Place
+        $auth_id = Auth::id();
+
+        $profile_subcity_id = profile::where('user_id',$auth_id)->value('subcity_id');
+
+        $suppliers = supplier::where('subcity_id','like','%'.$profile_subcity_id.'%')->where('catg_id','like','%'.$order->catg_id.'%')->get();
+
+        foreach ($suppliers as $supplier) {
+            $supplier_userid = $supplier->user_id;
+            $suppliernotf  = suppliernotf::create([
+            'order_id' => $order->id,
+            'user_id' => $supplier_userid
+            ]); 
+        }
+
     }
 
     public function approve_order($id)
@@ -85,12 +107,38 @@ class orderController extends Controller
             'rate' => $request->rate,
             'order_id' => $request->order_id
         ]);
+
+        $order = order::where('id',$request->order_id)->update([
+            'state' => 2
+        ]);
+        $messages = messages::where('order_id',$request->order_id)->delete();
+
+        $fetchfeedback = feedback::where('supplier_id',$request->supplier_id)->get();
+        $number = 0;
+        $count_loop =0;
+        foreach ($fetchfeedback as $k) {
+            $number = $number + $k->rate;
+            $count_loop = $count_loop + 1; 
+        }
+        $rate = $number / $count_loop;
+
+        $rate = round($rate);
+
+        $count = supplier::where('user_id',$request->supplier_id)->value('count');
+
+        $count = $count + 1;
+
+        $supplierUpdate = supplier::where('user_id',$request->supplier_id)->update([
+            'count' => $count,
+            'rate' => $rate
+
+        ]);
     }
 
     public function destroyOrder($id)
     {
-        $order = order::where('id',$id)->update([
-            'state' => 3
-        ]);
+        $order = order::where('id',$id)->delete();
+        $suppliernotf = suppliernotf::where('order_id',$id)->delete();
+
     }
 }

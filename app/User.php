@@ -53,4 +53,8 @@ class User extends Authenticatable
     public function profile() {
         return $this->hasOne('App\profile');
     }
+
+    public function supplierresp() {
+        return $this->hasMany('App\supplierresp');
+    }
 }
