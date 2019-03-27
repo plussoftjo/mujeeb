@@ -44,7 +44,7 @@ class myOrderController extends Controller
         $message = messages::create([
             'type' => 'received',
             'order_id' =>$supplierresp->order_id,
-            'message' => 'نرحب بكم بخدمتكم يمكنك االاستفسار هنا ',
+            'message' => 'مرحبا بكم نشكركم على اختيار خدماتنا لأي استفسار تواصل معنا هنا .',
             'hasImage' => false
         ]);
     }
