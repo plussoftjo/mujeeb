@@ -13,6 +13,7 @@ use App\Events\MessageSent;
 use Intervention\Image\ImageManagerStatic as Image;
 use Carbon\Carbon;
 use Validator;
+use App\suppliernotf;
 class myOrderController extends Controller
 {
     public function myOrder() 
@@ -35,7 +36,7 @@ class myOrderController extends Controller
     	$supplierresp = supplierresp::where('id',$id)->first();
     	$supplierrespupdate = supplierresp::where('id',$id)->update(['state' => 1]);
     	$deleteotherresp = supplierresp::where('order_id',$supplierresp->order_id)->where('id','!=',$id)->delete();
-
+        $deleteothernotf = suppliernotf::where('order_id',$supplierresp->order_id)->delete();
     	$order= order::where('id',$supplierresp->order_id)->update([
     		'state' => 1,
     		'user_id' => $supplierresp->user_id

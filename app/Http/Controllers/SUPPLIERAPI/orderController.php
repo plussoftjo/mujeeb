@@ -66,4 +66,8 @@ class orderController extends Controller
         event(new MessageSent($message));
     } 
 
+    public function last_order() {
+        return response()->json(order::where('user_id',Auth::id())->where('state',2)->get());
+    }
+
 }

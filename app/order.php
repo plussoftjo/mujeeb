@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class order extends Model
 {
-	public $with = ['user','catg','subcatg','supplierresp'];
+	public $with = ['user','catg','subcatg','supplierresp','feedback'];
     protected $fillable = ['user_id','auth','date','lngLat','des','images','state','type','catg_id','subcatg_id','time'];
 
     public function user() {
@@ -26,5 +26,9 @@ class order extends Model
     }
     public function supplierresp() {
         return $this->hasMany('App\supplierresp');
+    }
+
+    public function feedback() {
+        return $this->hasOne('App\feedback');
     }
 }

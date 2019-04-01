@@ -83,9 +83,14 @@ Route::group(['middleware' => 'auth:api'], function(){
 	Route::post('supplier/order/submit_price','SUPPLIERAPI\orderController@submit_price');
 	// taken order
 	Route::get('supplier/takenorders','SUPPLIERAPI\orderController@takenorders');
+
+	Route::get('supplier/last_order','SUPPLIERAPI\orderController@last_order');
+
+	// FETCH USER 
+	Route::get('supplier/user/auth','SUPPLIERAPI\authController@fetch');
 });
 
-Route::middleware('auth:api')->post('/broadcast/auth', 'Api\BroadcastAuthController@auth');
+Route::middleware('auth:api')->post('/broadcast/auth', 'API\BroadcastAuthController@auth');
 
 Broadcast::channel('messages.*', function ($user) {
   return Auth::check();
