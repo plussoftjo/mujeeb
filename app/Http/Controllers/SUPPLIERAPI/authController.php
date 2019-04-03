@@ -102,7 +102,7 @@ class authController extends Controller
     }
 
     public function check() {
-        $approve = User::where('id',Auth::id())->value('approve');
+        $approve = User::where('id',Auth::id())->value('approved');
         if($approve) {
             return response()->json(['approve' => true]);
         }
