@@ -125,12 +125,17 @@ class orderController extends Controller
         $rate = round($rate);
 
         $count = supplier::where('user_id',$request->supplier_id)->value('count');
+        $cash = supplier::where('user_id',$request->supplier_id)->value('cash');
+
+        $cash = $cash + 10;
 
         $count = $count + 1;
 
+
         $supplierUpdate = supplier::where('user_id',$request->supplier_id)->update([
             'count' => $count,
-            'rate' => $rate
+            'rate' => $rate,
+            'cash' => $cash
 
         ]);
     }

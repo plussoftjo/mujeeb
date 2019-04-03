@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class supplier extends Model
 {
 	public $with =['country','city',];
-    protected $fillable = ['user_id','country_id','city_id','subcity_id','catg_id','subcatg_id','image'];
+    protected $fillable = ['user_id','country_id','city_id','subcity_id','catg_id','subcatg_id','image','gender','nationality'];
 
     public function user() {
     	return $this->belongsTo('App\User');
@@ -20,5 +20,4 @@ class supplier extends Model
     public function city() {
     	return $this->belongsTo('App\city');
     }
-    
 }

@@ -40,7 +40,7 @@ class catgController extends Controller
         $image = $request->get('image');
         $fileNameimage = Carbon::now()->timestamp . uniqid() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
         $destinationPath = public_path('images/item/');
-        Image::make($request->get('image'))->resize(100,300)->save(public_path('images/catg/').$fileNameimage);
+        Image::make($request->get('image'))->save(public_path('images/catg/').$fileNameimage);
 
         $catg = catg::create([
             'title' => $request->title,

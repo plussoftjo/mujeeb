@@ -22,8 +22,11 @@ class CreateSuppliersTable extends Migration
             $table->string('catg_id');
             $table->string('subcatg_id')->nullable();
             $table->string('image');
-            $table->integer('rate')->defaul(0);
+            $table->integer('rate')->default(0);
             $table->integer('count')->default(0);
+            $table->integer('cash')->default(0);
+            $table->string('nationality')->nullable();
+            $table->string('gender')->nullable();
             $table->timestamps();
         });
     }

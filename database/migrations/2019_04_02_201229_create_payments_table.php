@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSupplierrespsTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateSupplierrespsTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplierresps', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('order_id');
-            $table->string('price');
-            $table->string('des');
-            $table->integer('team_id')->nullable();
-            $table->boolean('state')->default(0);
+            $table->string('amount');
+            $table->string('msg')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('approve')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateSupplierrespsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supplierresps');
+        Schema::dropIfExists('payments');
     }
 }

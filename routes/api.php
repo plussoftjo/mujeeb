@@ -19,6 +19,16 @@ Route::post('user/login','API\authController@login');
 Route::post('user/reg','API\authController@reg');
 
 
+
+
+// supplier Login Controller 
+Route::get('auth/fetchdata','SUPPLIERAPI\authController@fetchdata');
+Route::get('auth/changeCountry/{id}','SUPPLIERAPI\authController@changeCountry');
+Route::get('auth/changeCity/{id}','SUPPLIERAPI\authController@changeCity');
+Route::post('auth/changeCatg','SUPPLIERAPI\authController@changeCatg');
+
+Route::post('auth/store','SUPPLIERAPI\authController@store');
+
 // WITH AUTH 
 
 Route::group(['middleware' => 'auth:api'], function(){ 
@@ -88,6 +98,43 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 	// FETCH USER 
 	Route::get('supplier/user/auth','SUPPLIERAPI\authController@fetch');
+
+
+	// check user if approve or not 
+	Route::get('supplier/auth/check','SUPPLIERAPI\authController@check');
+
+
+
+
+	///////// TEAM CONTROLELR ////////
+	Route::get('supplier/team/fetchSubcatg','SUPPLIERAPI\teamController@fetchSubcatg');
+	//store team
+	Route::post('supplier/team/store','SUPPLIERAPI\teamController@store');
+	//index Team
+	Route::get('supplier/team/index','SUPPLIERAPI\teamController@index');
+	// Get supplier
+	Route::get('supplier/team/person/{id}','SUPPLIERAPI\teamController@person');
+	// SEND PAYMENYT
+	Route::post('supplier/payment/store','SUPPLIERAPI\paymentController@store');
+	Route::get('supplier/payment/index','SUPPLIERAPI\paymentController@index');
+
+
+	// update Info 
+	Route::post('supplier/user/update','SUPPLIERAPI\authController@update');
+
+
+	//msg 
+	Route::get('supplier/welcomemsg/check','SUPPLIERAPI\welcomeMsgController@check');
+	Route::post('supplier/welcomemsg/store','SUPPLIERAPI\welcomeMsgController@store');
+	Route::post('supplier/welcomemsg/update','SUPPLIERAPI\welcomeMsgController@update');
+
+
+
+	// report
+	Route::get('supplier/report/today','SUPPLIERAPI\reportController@today');
+	Route::get('supplier/report/week','SUPPLIERAPI\reportController@week');
+	Route::get('supplier/report/month','SUPPLIERAPI\reportController@month');
+
 });
 
 Route::middleware('auth:api')->post('/broadcast/auth', 'API\BroadcastAuthController@auth');
@@ -95,3 +142,4 @@ Route::middleware('auth:api')->post('/broadcast/auth', 'API\BroadcastAuthControl
 Broadcast::channel('messages.*', function ($user) {
   return Auth::check();
 });
+

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSupplierrespsTable extends Migration
+class CreateWelcomemsgsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateSupplierrespsTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplierresps', function (Blueprint $table) {
+        Schema::create('welcomemsgs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('order_id');
-            $table->string('price');
-            $table->string('des');
-            $table->integer('team_id')->nullable();
-            $table->boolean('state')->default(0);
+            $table->text('msg');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateSupplierrespsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supplierresps');
+        Schema::dropIfExists('welcomemsgs');
     }
 }

@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->string('state')->default(0);
             $table->string('type');
             $table->integer('catg_id');
+            $table->integer('team_id')->default(0);
             $table->integer('subcatg_id')->nullable();
             $table->timestamps();
         });

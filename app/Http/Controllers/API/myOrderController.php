@@ -39,7 +39,8 @@ class myOrderController extends Controller
         $deleteothernotf = suppliernotf::where('order_id',$supplierresp->order_id)->delete();
     	$order= order::where('id',$supplierresp->order_id)->update([
     		'state' => 1,
-    		'user_id' => $supplierresp->user_id
+    		'user_id' => $supplierresp->user_id,
+            'team_id' => $supplierresp->team_id
     	]);
 
         $message = messages::create([

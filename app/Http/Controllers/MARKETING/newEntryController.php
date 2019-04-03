@@ -37,7 +37,7 @@ class newEntryController extends Controller
 
         $image = $request->get('image');
         $fileNameimage = Carbon::now()->timestamp . uniqid() . '.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-        Image::make($request->get('image'))->resize(400,400)->save(public_path('images/supplier/').$fileNameimage);
+        Image::make($request->get('image'))->save(public_path('images/supplier/').$fileNameimage);
 
         $user = User::create([
         	'name' => $request->name,

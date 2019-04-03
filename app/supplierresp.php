@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class supplierresp extends Model
 {
 	public $with = ['user'];
-    protected $fillable = ['user_id','order_id','price','des'];
+    protected $fillable = ['user_id','order_id','price','des','team_id'];
 
     public function order() {
     	return $this->belongsTo('App\order');

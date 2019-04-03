@@ -35,7 +35,8 @@ class orderController extends Controller
     		'order_id' => $request->order_id,
     		'user_id' => Auth::id(),
     		'price' => $request->price,
-    		'des' => $request->des
+    		'des' => $request->des,
+            'team_id' =>$request->team_id
     	]);
 
     }
