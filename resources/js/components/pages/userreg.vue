@@ -69,8 +69,8 @@
 				</div>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary" @click="update">Save changes</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+		        <button type="button" class="btn btn-primary" @click="update">حفظ</button>
 		      </div>
 		    </div>
 		  </div>
@@ -82,10 +82,10 @@
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
-		      <th scope="col">Name</th>
-		      <th scope="col">Phone</th>
-		      <th scope="col">Count</th>
-		      <th scope="col">Edit</th>
+		      <th scope="col">الاسم</th>
+		      <th scope="col">رقم الهاتف</th>
+		      <th scope="col">عدد التسجيلات</th>
+		      <th scope="col">تعديل</th>
 		    </tr>
 		  </thead>
 		  <tbody>

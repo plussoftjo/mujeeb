@@ -1,13 +1,13 @@
 <template>
 	<div class="routerLinkSection">
 		<ul class="list-group bg-dark" style="border-radius: 0px!important; color: white; font-weight: 400;">
-		  <li class="list-group-item bg-dark">Dashboard</li>
-		  <li class="list-group-item bg-dark" @click="$router.push({name:'catg'})">Catgoray</li>
-		  <li class="list-group-item bg-dark" @click="$router.push({name:'subCatg'})">Sub Catgoray</li>
-		  <li class="list-group-item bg-dark" @click="$router.push({name:'userreg'})">User Marketing</li>
-		  <li class="list-group-item bg-dark" @click="$router.push({name:'country'})">Country</li>
-		  <li class="list-group-item bg-dark" @click="$router.push({name:'city'})">City</li>
-		  <li class="list-group-item bg-dark" @click="$router.push({name:'subcity'})">subcity</li>
+		  <li class="list-group-item bg-dark"@click="$router.push({name:'index'})">لوحة التحكم</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'catg'})">الفئات</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'subCatg'})">الفئات الثانويه</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'userreg'})">حسابات المسوقين</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'country'})">الدول</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'city'})">المدن</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'subcity'})">الاحياء</li>
 		</ul>
 	</div>
 </template>
