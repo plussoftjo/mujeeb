@@ -82,7 +82,31 @@ Route::post('/subcity/update/{id}','ADMIN\subcityController@update');
 Route::get('/subcity/destroy/{id}','ADMIN\subcityController@destroy');
 
 
+// SUPPLIER CONTROLLER 
+Route::get('admin/user/suppliers/index','ADMIN\supplierUserController@index');
+Route::get('admin/user/suppliers/ban/{id}','ADMIN\supplierUserController@ban');
+Route::get('admin/user/suppliers/enable/{id}','ADMIN\supplierUserController@enable');
 
+
+// SUPPLIER Review CONTROLLER 
+Route::get('admin/user/suppliers/review/index','ADMIN\supplierReviewController@index');
+Route::get('admin/user/suppliers/review/ban/{id}','ADMIN\supplierReviewController@ban');
+Route::get('admin/user/suppliers/review/enable/{id}','ADMIN\supplierReviewController@enable');
+Route::get('admin/user/suppliers/review/show/{id}','ADMIN\supplierReviewController@show');
+
+// BANK CONTROLLER 
+Route::get('/bank/index','ADMIN\bankController@index');
+Route::post('/bank/store','ADMIN\bankController@store');
+Route::post('/bank/update/{id}','ADMIN\bankController@update');
+Route::get('/bank/destroy/{id}','ADMIN\bankController@destroy');
+
+// DASH BOARD
+Route::get('admin/dashboard/state','ADMIN\stateController@dashboard');
+
+// Payment Controller 
+Route::get('admin/user/suppliers/payments/index','ADMIN\paymentController@index');
+Route::get('admin/user/suppliers/payments/show/{id}','ADMIN\paymentController@show');
+Route::post('admin/user/suppliers/payments/payment_id/{payment_id}/user_id/{user_id}','ADMIN\paymentController@approve');
 
 
 ///////////////////////////// 

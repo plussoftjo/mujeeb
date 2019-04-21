@@ -8,6 +8,11 @@
 		  <li class="list-group-item bg-dark" @click="$router.push({name:'country'})">الدول</li>
 		  <li class="list-group-item bg-dark" @click="$router.push({name:'city'})">المدن</li>
 		  <li class="list-group-item bg-dark" @click="$router.push({name:'subcity'})">الاحياء</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'suppliers'})">قائمة المزودين</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'needFrom'})">المطلوب منهم</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'bank'})">الحسابات البنكية</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'review'})">طلبات تسجيل المزودين</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'payment'})">الدفعات</li>
 		</ul>
 	</div>
 </template>

@@ -5,6 +5,11 @@ import userreg from './components/pages/userreg';
 import country from './components/pages/country';
 import city from './components/pages/city';
 import subcity from './components/pages/subcity';
+import suppliers from './components/pages/suppliers';
+import needFrom from './components/pages/needFrom';
+import bank from './components/pages/bank';
+import review from './components/pages/review';
+import payment from './components/pages/payment';
 export const routes = 
 [
 	{
@@ -41,5 +46,30 @@ export const routes =
 		path:'/subcity',
 		name:'subcity',
 		component:subcity
+	},
+	{
+		path:'/suppliers',
+		name:'suppliers',
+		component:suppliers
+	},
+	{
+		path:'/needFrom',
+		name:'needFrom',
+		component:needFrom
+	},
+	{
+		path:'/bank',
+		name:'bank',
+		component:bank
+	},
+	{
+		path:'/review',
+		name:'review',
+		component:review
+	},
+	{
+		path:'/payment',
+		name:'payment',
+		component:payment
 	}
 ];

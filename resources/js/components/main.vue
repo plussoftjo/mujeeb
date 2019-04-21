@@ -1,11 +1,11 @@
 <template>
 	<div class="main">
-		<nav class="navbar navbar-dark fixed-top" style="background-color: #ededed;">
+		<nav class="navbar navbar-dark " style="background-color: #ededed;">
 		  <a class="navbar-brand" href="#">
 		    <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
 		  </a>
 		</nav>
-		<div class="bg-light" style="padding-top: 56px;" :style="{height:height}">
+		<div class="bg-light" style="padding-top: 0px;" :style="{height:height}">
 			<div class="pages">
 				<div class="left">
 					<routerLinkSection></routerLinkSection>

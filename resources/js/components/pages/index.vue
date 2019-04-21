@@ -5,10 +5,10 @@
 				<div class="col-md-6">
 					<div class="card">
 						<div class="card-header">
-							المزودين المتاحين
+							عدد العملاء المسجلين
 						</div>
 						<div class="card-body">
-							3
+							{{state.client_count}}
 						</div>
 					</div>
 				</div>
@@ -18,7 +18,7 @@
 							عدد المسجلين
 						</div>
 						<div class="card-body">
-							6
+							{{state.supplier_count}}
 						</div>
 					</div>
 				</div>
@@ -28,6 +28,24 @@
 </template>
 <script>
 	export default {
-		
+		data() {
+			return {
+				state:{}
+			}
+		},
+		methods:{
+			install() {
+				const vm =this;
+				axios.get('admin/dashboard/state').then(response => {
+					vm.state = response.data;
+				}).catch(err => {
+					console.log(err);
+				});
+			}
+		},
+		mounted() {
+			const vm =this;
+			vm.install();
+		}
 	}
 </script>
