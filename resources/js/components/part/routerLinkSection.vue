@@ -13,6 +13,7 @@
 		  <li class="list-group-item bg-dark" @click="$router.push({name:'bank'})">الحسابات البنكية</li>
 		  <li class="list-group-item bg-dark" @click="$router.push({name:'review'})">طلبات تسجيل المزودين</li>
 		  <li class="list-group-item bg-dark" @click="$router.push({name:'payment'})">الدفعات</li>
+		  <li class="list-group-item bg-dark" @click="$router.push({name:'ads'})">الاعلانات</li>
 		</ul>
 	</div>
 </template>

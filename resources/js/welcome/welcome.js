@@ -3,7 +3,9 @@ require('./bootstrap');
 window.Vue = require('vue');
 import VueRouter from 'vue-router';
 import Vuetify from 'vuetify';
-window.Vue.use(Vuetify,{rtl:true});
+window.Vue.use(Vuetify, {
+  rtl: true
+});
 import 'vuetify/dist/vuetify.min.css';
 window.Vue.use(VueRouter);
 import { routes } from './routes.js';

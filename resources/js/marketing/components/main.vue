@@ -2,10 +2,11 @@
 	<v-app>
 		<v-toolbar dark>
 		    <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-		    <v-toolbar-title>Mujeeb Marketing</v-toolbar-title>
+		    <v-toolbar-title>مسوقين مجيب </v-toolbar-title>
 		  </v-toolbar>
 		<v-navigation-drawer v-model="drawer" absolute
 	      dark
+	      right
 	      temporary>
 		    <v-toolbar flat>
 		      <v-list>
@@ -45,8 +46,8 @@
 		data () {
 	      return {
 	        items: [
-	          { title: 'dashboard', icon: 'dashboard',at:'index' },
-	          { title: 'New Entry', icon: 'question_answer',at:'newEntry' }
+	          { title: 'الرئيسية', icon: 'dashboard',at:'index' },
+	          { title: 'تسجيل جديد', icon: 'question_answer',at:'newEntry' }
 	        ],
 	        right: null,
 	        drawer:false

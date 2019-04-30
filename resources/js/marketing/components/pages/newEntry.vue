@@ -2,12 +2,12 @@
 	<div class="newEntry">
 		<v-container v-if="!success">
 			<div class="title">
-				New Entry
+				اضافة مزود جديد
 			</div>
 			<v-container>
 				<v-card class="mt-2"> 
 				<v-card-title class="black lighten-2 white--text">
-					Supplier Personal Info
+					معلومات المزود الرئيسية
 				</v-card-title>
 				<v-card-title>
 					<v-layout row wrap>
@@ -51,7 +51,7 @@
 			<v-container>
 				<v-card>
 					<v-card-title class="black lighten-2 white--text">
-						GEO INFO
+						معلومات المنطقة
 					</v-card-title>
 					<v-card-title>
 						<v-layout row wrap>
@@ -61,7 +61,7 @@
 								solo
 								item-text="title"
 								item-value="id"
-								label="Country"
+								label="الدولة"
 								@change="changeCountry"
 								v-model="supplier.country_id"></v-select>
 							</v-flex>
@@ -69,7 +69,7 @@
 								<v-select
 								:items="citys"
 							solo
-								label="City"
+								label="المدينة"
 								item-text="title"
 								item-value="id"
 								@change="changeCity"
@@ -79,7 +79,7 @@
 								<v-select
 							solo
 								:items="subcitys"
-								label="Place"
+								label="المناطق"
 								multiple
 								item-text="title"
 								item-value="id"
@@ -94,7 +94,7 @@
 			<v-container>
 				<v-card>
 					<v-card-title class="black lighten-2 white--text">
-						CATGS & Other 
+						الفئات
 					</v-card-title>
 					<v-card-title>
 						<v-layout row wrap>
@@ -107,13 +107,13 @@
 								item-value="id"
 								v-model="supplier.catg_id"
 								@change="changeCatg"
-								label="Catg"></v-select>
+								label="الفئة الرئيسية"></v-select>
 							</v-flex>
 							<v-flex xs12>
 								<v-select
 								:items="subCatgs"
 							solo
-								label="Sub Catg"
+								label="الفئة الثانوية"
 								multiple
 								item-text="title"
 								item-value="id"
@@ -130,7 +130,7 @@
 			</v-container>
 			<v-container>
 				<v-btn class="green" block dark @click="store">
-					Save New Supplier
+					حفظ معلومات المزود الجديدة
 				</v-btn>
 			</v-container>
 		</v-container>
@@ -145,13 +145,13 @@
 				</v-card-title>
 				<v-card-title>
 					<div class="font-weight-black" style="width: 100%;">
-						Name : {{supplier.name}}
+						الاسم : {{supplier.name}}
 					</div>
 					<div class="font-weight-black" style="width: 100%;">
-						Phone : {{supplier.phone}}
+						رقم الهاتف : {{supplier.phone}}
 					</div>
 					<div class="font-weight-black" style="width: 100%;">
-						Password: {{supplier.password}}
+						رمز المرور: {{supplier.password}}
 					</div>
 				</v-card-title>
 			</v-card>

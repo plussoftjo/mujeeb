@@ -1,15 +1,18 @@
 <template>
 	<div class="index">
 		<v-container>
-			{{user.name}}
+			<div class="font-weight-black" style="text-align: right;">
+				{{user.name}}
+			</div>	
 		</v-container>
+		
 		<v-container>
 			<div class="row">
 				<div class="col">
 					<div class="card">
 						<div class="card-header">
 							<div class="title">
-								Today
+								تسجيلات اليوم
 							</div>
 							<div class="title">
 								0 
@@ -21,7 +24,7 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="title">
-								All
+								الجميع
 							</div>
 							<div class="title">
 								0
@@ -32,12 +35,12 @@
 			</div>
 		</v-container>
 
-		<v-container>
-			<v-btn class="green darken-2" dark @click="$router.push({name:'newEntry'})">New Supplier</v-btn>
+		<v-container text-xs-right>
+			<v-btn class="green darken-2 font-weight-black" dark @click="$router.push({name:'newEntry'})">اضافة  مزود جديد	</v-btn>
 		</v-container>
-		<v-card class="grey">
+	<!-- 	<v-card class="grey">
 			<v-card-title class="font-weight-black white--text">
-				Last Supplier Added
+				اضافة مزود جديد
 			</v-card-title>
 		</v-card>
 		<v-card v-for="i in 4" :key="i" class="mt-2">
@@ -56,7 +59,7 @@
 					</v-flex>
 				</v-layout>	
 			</v-container>
-		</v-card>
+		</v-card> -->
 	</div>
 </template>
 <script>

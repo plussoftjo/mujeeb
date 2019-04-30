@@ -10,6 +10,7 @@ import needFrom from './components/pages/needFrom';
 import bank from './components/pages/bank';
 import review from './components/pages/review';
 import payment from './components/pages/payment';
+import ads from './components/pages/ads';
 export const routes = 
 [
 	{
@@ -71,5 +72,10 @@ export const routes =
 		path:'/payment',
 		name:'payment',
 		component:payment
+	},
+	{
+		path:'/ads',
+		name:'ads',
+		component:ads
 	}
 ];

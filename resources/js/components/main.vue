@@ -1,8 +1,8 @@
 <template>
 	<div class="main">
-		<nav class="navbar navbar-dark " style="background-color: #ededed;">
+		<nav class="navbar navbar-dark bg-dark" style="background-color: #ededed;">
 		  <a class="navbar-brand" href="#">
-		    <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+		    <img :src="require('./imgs/logo.png')" width="40" height="40" alt="">
 		  </a>
 		</nav>
 		<div class="bg-light" style="padding-top: 0px;" :style="{height:height}">

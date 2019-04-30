@@ -49,6 +49,12 @@ Route::get('/catg/destroy/{id}','ADMIN\catgController@destroy');
 Route::post('/catg/update/image/{id}','ADMIN\catgController@updateImage');
 Route::post('/catg/update/title/{id}','ADMIN\catgController@update');
 
+
+// ads 
+Route::get('/ads/index','ADMIN\adsController@index');
+Route::post('/ads/store','ADMIN\adsController@store');
+Route::get('/ads/destroy/{id}','ADMIN\adsController@destroy');
+
 // sub Catg
 Route::get('/subCatg/index','ADMIN\subCatgController@index');
 Route::post('/subCatg/store','ADMIN\subCatgController@store');
