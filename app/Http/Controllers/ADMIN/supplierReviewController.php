@@ -15,7 +15,7 @@ class supplierReviewController extends Controller
      */
     public function index()
     {
-        return response()->json(User::where('type','مؤسسة ')->where('approve',0)->get());
+        return response()->json(User::where('type','مؤسسة ')->where('approved',0)->get());
     }
 
     /**
@@ -32,7 +32,7 @@ class supplierReviewController extends Controller
     public function ban($id)
     {
         $user = User::where('id',$id)->update([
-            'approve' => 3 // 3 is The Not Approve State
+            'approved' => 3 // 3 is The Not Approve State
         ]);
 
     } 
@@ -40,7 +40,7 @@ class supplierReviewController extends Controller
     public function enable($id)
     {
         $user = User::where('id',$id)->update([
-            'approve' => 1
+            'approved' => 1
         ]);
     }
 
